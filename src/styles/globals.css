@@ -361,13 +361,16 @@ p {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, #274a68 0%, #3d6489 45%, #6d8fac 100%);
+  background-color: #274a68;
+  background-image: url("/images/hero.jpg");
+  background-size: cover;
+  background-position: center 30%;
 }
 .hero-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10, 25, 40, 0.15), rgba(10, 25, 40, 0.55));
+  background: linear-gradient(180deg, rgba(10, 25, 40, 0.35), rgba(10, 25, 40, 0.6));
 }
 .hero-inner {
   position: relative;
@@ -506,6 +509,13 @@ p {
 .split .ph {
   aspect-ratio: 4 / 5;
   border-radius: var(--radius);
+}
+.split-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
 }
 .about-text {
   max-width: 560px;

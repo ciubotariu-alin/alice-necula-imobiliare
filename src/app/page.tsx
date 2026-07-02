@@ -76,7 +76,7 @@ export default function HomePage() {
       <section className="section alt">
         <div className="container">
           <div className="split">
-            <Placeholder label="Foto Alice Necula" variant="gold" />
+            <img src="/images/alice.jpg" alt="Alice Necula, agent imobiliar" className="split-photo" />
             <div className="about-text">
               <SectionTitle
                 eyebrow="Despre mine"

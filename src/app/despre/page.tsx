@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/data/site";
-import Placeholder from "@/components/Placeholder";
 import SectionTitle from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
@@ -49,7 +48,7 @@ export default function DesprePage() {
       <section className="section">
         <div className="container">
           <div className="split">
-            <Placeholder label="Foto Alice Necula" variant="gold" />
+            <img src="/images/alice-portret.jpg" alt="Alice Necula, agent imobiliar" className="split-photo" />
             <div className="about-text">
               <SectionTitle eyebrow="Cine sunt" title="Alice Necula" plain />
               <p>
