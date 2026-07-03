@@ -10,10 +10,11 @@ export const site = {
   yearsExperience: 12,
   sinceYear: 2014,
   socials: [
-    { label: "Facebook", href: "https://facebook.com", icon: "facebook" },
-    { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
-    { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
+    { label: "Facebook", href: "https://www.facebook.com/aliceneculabroker", icon: "facebook" },
+    { label: "Instagram", href: "https://www.instagram.com/alicenecula/", icon: "instagram" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/necula-imobiliare/", icon: "linkedin" },
     { label: "YouTube", href: "https://youtube.com", icon: "youtube" },
+    { label: "TikTok", href: "https://www.tiktok.com/@alicenecula", icon: "tiktok" },
   ],
 } as const;
 

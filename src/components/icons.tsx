@@ -33,6 +33,14 @@ export function IconYoutube(props: IconProps) {
   );
 }
 
+export function IconTiktok(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M16.5 3c.3 1.5.9 2.6 2 3.4.7.5 1.5.8 2.5.9v2.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 1.3-.4 2.5-1.1 3.5-1 1.5-2.7 2.5-4.6 2.5-2.9 0-5.3-2.3-5.3-5.2 0-2.7 2-4.9 4.6-5.2.3 0 .6-.1.9 0v2.7c-.3-.1-.6-.1-.9-.1-1.4 0-2.5 1.1-2.5 2.5s1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5V3h3.3z" />
+    </svg>
+  );
+}
+
 export function IconPlay(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -113,4 +121,5 @@ export const socialIcons: Record<string, ComponentType<IconProps>> = {
   instagram: IconInstagram,
   linkedin: IconLinkedin,
   youtube: IconYoutube,
+  tiktok: IconTiktok,
 };
