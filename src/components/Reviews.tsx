@@ -1,5 +1,4 @@
-import { reviews } from "@/data/reviews";
-import { site } from "@/data/site";
+import { getReviews } from "@/lib/googleReviews";
 
 function Stars({ n }: { n: number }) {
   const full = Math.round(n);
@@ -11,22 +10,24 @@ function Stars({ n }: { n: number }) {
   );
 }
 
-export default function Reviews() {
+export default async function Reviews() {
+  const { rating, total, reviews } = await getReviews();
+
   return (
     <div>
       <div className="rating-head">
         <div className="pill">Recenzii Google</div>
         <div style={{ margin: "14px 0 4px", fontSize: "2rem", fontWeight: 700, color: "var(--navy)" }}>
-          {site.googleRating.toFixed(1)}
+          {rating.toFixed(1)}
         </div>
-        <Stars n={site.googleRating} />
+        <Stars n={rating} />
         <div style={{ color: "var(--muted)", fontSize: "0.85rem", marginTop: 6 }}>
-          pe baza a {site.googleReviews} de recenzii reale
+          pe baza a {total} de recenzii reale
         </div>
       </div>
       <div className="reviews-row">
         {reviews.slice(0, 4).map((r) => (
-          <article className="review-card" key={r.author}>
+          <article className="review-card" key={r.author + r.date}>
             <div className="review-top">
               <span className="avatar">{r.initial}</span>
               <div>
