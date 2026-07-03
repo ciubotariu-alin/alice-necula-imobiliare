@@ -60,9 +60,8 @@ export async function POST(req: NextRequest) {
     if (!res.ok) {
       const detail = await res.text();
       console.error("Resend error:", res.status, detail);
-      // Temporar: afișăm motivul exact de la Resend pentru diagnosticare.
       return NextResponse.json(
-        { ok: false, error: `Trimiterea a eșuat (${res.status}). Detaliu Resend: ${detail}` },
+        { ok: false, error: "Trimiterea a eșuat. Încearcă din nou sau sună direct." },
         { status: 502 },
       );
     }
