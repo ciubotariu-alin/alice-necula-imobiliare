@@ -1,9 +1,9 @@
 ---
-title: "Cartierele din nordul Bucureștiului, pe scurt"
-date: "2025-07-08"
-category: "Zone"
-excerpt: "Bucureștii Noi, Domenii, Băneasa, Străulești — ce caută cumpărătorii în fiecare zonă."
-image: ""
+title: Cartierele din nordul Bucureștiului, pe scurt
+date: 2025-07-08
+category: Zone
+excerpt: Bucureștii Noi, Domenii, Băneasa, Străulești — ce caută cumpărătorii în fiecare zonă.
+image: /images/cartier-damaroaia.jpg
 ---
 
 Fiecare cartier din nordul Bucureștiului are personalitatea lui. Iată, pe scurt, ce caută cumpărătorii în zonele pe care le lucrez.
