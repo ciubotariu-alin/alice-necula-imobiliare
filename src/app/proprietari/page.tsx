@@ -6,6 +6,7 @@ import { exclusiveReasons } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Proprietari",
+  alternates: { canonical: "/proprietari" },
   description:
     "Pentru proprietarii care vor să vândă: reprezentare exclusivă, evaluare corectă și un proces predictibil, condus în interesul tău.",
 };

@@ -6,6 +6,7 @@ import { posts } from "@/data/posts";
 
 export const metadata: Metadata = {
   title: "Blog",
+  alternates: { canonical: "/blog" },
   description:
     "Amarant & cuișoare — chestii imobiliare pe înțelesul tuturor: strategie de preț, pregătirea casei, cartierele din nordul Bucureștiului.",
 };
