@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import SectionTitle from "@/components/SectionTitle";
 import Placeholder from "@/components/Placeholder";
 import { posts } from "@/data/posts";
@@ -25,12 +26,16 @@ export default function BlogPage() {
           <SectionTitle eyebrow="Articole" title="Ultimele articole" />
           <div className="grid grid-2">
             {posts.map((post) => (
-              <article className="property-card" key={post.slug}>
+              <Link href={`/blog/${post.slug}`} className="property-card" key={post.slug}>
                 <div className="property-media">
                   <span className="badge gold" style={{ position: "absolute", top: 12, left: 12, zIndex: 2 }}>
                     {post.category}
                   </span>
-                  <Placeholder showIcon />
+                  {post.image ? (
+                    <img src={post.image} alt={post.title} className="property-photo" />
+                  ) : (
+                    <Placeholder showIcon />
+                  )}
                 </div>
                 <div className="property-body">
                   <div className="review-date" style={{ marginBottom: 8 }}>
@@ -47,7 +52,7 @@ export default function BlogPage() {
                     {post.excerpt}
                   </p>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

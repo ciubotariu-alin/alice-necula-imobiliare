@@ -216,9 +216,13 @@ export default function HomePage() {
           <div className="grid grid-4">
             {neighborhoods.map((h) => (
               <Link href={`/portofoliu#${h.slug}`} key={h.slug} className="hood-card">
-                <div className="ph">
-                  <IconHouse style={{ width: 30, height: 30, opacity: 0.5 }} />
-                </div>
+                {h.image ? (
+                  <img src={h.image} alt="" className="hood-photo" />
+                ) : (
+                  <div className="ph">
+                    <IconHouse style={{ width: 30, height: 30, opacity: 0.5 }} />
+                  </div>
+                )}
                 <span className="hood-name">{h.name}</span>
               </Link>
             ))}

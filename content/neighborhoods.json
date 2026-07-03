@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "slug": "bucurestii-noi",
+      "name": "Bucureștii Noi",
+      "description": "Cartier rezidențial în plină dezvoltare, cu acces bun la metrou și zone verzi.",
+      "intro": "Bucureștii Noi combină locuințele mature cu proiecte noi de apartamente. Este căutat pentru raportul bun preț–locație și pentru accesul rapid la magistrala de metrou.",
+      "image": ""
+    },
+    {
+      "slug": "damaroaia",
+      "name": "Dămăroaia",
+      "description": "Zonă liniștită de case și blocuri joase, cu comunitate stabilă.",
+      "intro": "Dămăroaia păstrează un caracter de cartier de case, potrivit pentru familii care caută liniște fără să se depărteze de oraș.",
+      "image": ""
+    },
+    {
+      "slug": "pajura",
+      "name": "Pajura",
+      "description": "Cartier accesibil, bine conectat, cu ofertă variată de apartamente.",
+      "intro": "Pajura oferă apartamente la prețuri competitive și legături bune de transport, fiind o alegere frecventă pentru prima locuință.",
+      "image": ""
+    },
+    {
+      "slug": "domenii",
+      "name": "Domenii",
+      "description": "Zonă premium, cu vile și apartamente elegante, foarte căutată.",
+      "intro": "Domenii este una dintre cele mai apreciate zone din nordul Bucureștiului, cu arhitectură interbelică, străzi liniștite și cerere constantă.",
+      "image": ""
+    },
+    {
+      "slug": "1-mai",
+      "name": "1 Mai",
+      "description": "Cartier central-nordic, cu acces excelent și infrastructură matură.",
+      "intro": "1 Mai (Ion Mihalache) este o zonă centrală-nordică apreciată pentru accesul rapid oriunde în oraș și pentru fondul locativ solid.",
+      "image": ""
+    },
+    {
+      "slug": "sisesti",
+      "name": "Șișești",
+      "description": "Zonă rezidențială cu case și proiecte noi, aproape de verdeață.",
+      "intro": "Șișești atrage cumpărători care caută case și proiecte rezidențiale noi, într-o zonă în dezvoltare din nordul orașului.",
+      "image": ""
+    },
+    {
+      "slug": "straulesti",
+      "name": "Străulești",
+      "description": "Cartier modern lângă metrou și lac, cu proiecte rezidențiale noi.",
+      "intro": "Străulești s-a transformat rapid într-o zonă modernă, cu ansambluri noi, acces la metrou și la spațiile verzi din jurul lacului.",
+      "image": ""
+    },
+    {
+      "slug": "baneasa",
+      "name": "Băneasa",
+      "description": "Zonă premium, cu vile, spații verzi și proiecte de lux.",
+      "intro": "Băneasa este sinonimă cu locuirea premium în nordul Capitalei: vile, ansambluri exclusiviste și proximitatea pădurii.",
+      "image": ""
+    }
+  ]
+}

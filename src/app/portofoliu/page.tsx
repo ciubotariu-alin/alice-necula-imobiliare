@@ -43,6 +43,7 @@ export default function PortofoliuPage() {
           <div className="grid grid-2">
             {neighborhoods.map((h) => (
               <div className="panel" id={h.slug} key={h.slug} style={{ scrollMarginTop: 120 }}>
+                {h.image && <img src={h.image} alt={h.name} className="hood-thumb" />}
                 <h3 style={{ fontSize: "1.15rem" }}>{h.name}</h3>
                 <p style={{ color: "var(--muted)", margin: 0 }}>{h.intro}</p>
               </div>

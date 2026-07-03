@@ -771,6 +771,21 @@ p {
   position: absolute;
   inset: 0;
 }
+.hood-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hood-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  display: block;
+}
 .hood-card::after {
   content: "";
   position: absolute;
@@ -1128,4 +1143,60 @@ p {
   .hero {
     min-height: 460px;
   }
+}
+
+/* ---------- Article (blog post) ---------- */
+.article {
+  max-width: 760px;
+}
+.article-hero {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 32px;
+  display: block;
+}
+.article-body {
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+.article-body h2 {
+  font-family: var(--font-display);
+  color: var(--navy);
+  font-size: 1.5rem;
+  margin: 34px 0 12px;
+}
+.article-body h3 {
+  color: var(--navy);
+  font-size: 1.2rem;
+  margin: 26px 0 10px;
+}
+.article-body p {
+  margin: 0 0 18px;
+}
+.article-body ul,
+.article-body ol {
+  margin: 0 0 18px;
+  padding-left: 22px;
+}
+.article-body li {
+  margin-bottom: 8px;
+}
+.article-body a {
+  color: var(--gold-dark);
+  text-decoration: underline;
+}
+.article-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+.article-body blockquote {
+  margin: 0 0 18px;
+  padding: 6px 18px;
+  border-left: 3px solid var(--gold);
+  color: var(--muted);
+  font-style: italic;
 }

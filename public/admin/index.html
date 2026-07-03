@@ -98,6 +98,52 @@
               ],
             },
             {
+              name: "blog",
+              label: "Blog (articole)",
+              label_singular: "Articol",
+              folder: "content/blog",
+              create: true,
+              extension: "md",
+              format: "frontmatter",
+              slug: "{{slug}}",
+              summary: "{{title}}",
+              fields: [
+                { name: "title", label: "Titlu", widget: "string" },
+                { name: "date", label: "Data", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" },
+                { name: "category", label: "Categorie", widget: "string", hint: "ex: Strategie de preț, Ghid vânzare, Zone" },
+                { name: "excerpt", label: "Rezumat scurt", widget: "text", hint: "Apare pe cardul din pagina Blog." },
+                { name: "image", label: "Fotografie", widget: "image", required: false },
+                { name: "body", label: "Conținut articol", widget: "markdown" },
+              ],
+            },
+            {
+              name: "cartiere",
+              label: "Cartiere",
+              files: [
+                {
+                  name: "lista",
+                  label: "Listă cartiere",
+                  file: "content/neighborhoods.json",
+                  fields: [
+                    {
+                      name: "items",
+                      label: "Cartiere",
+                      label_singular: "Cartier",
+                      widget: "list",
+                      summary: "{{fields.name}}",
+                      fields: [
+                        { name: "name", label: "Nume", widget: "string" },
+                        { name: "image", label: "Fotografie", widget: "image", required: false },
+                        { name: "description", label: "Descriere scurtă", widget: "text" },
+                        { name: "intro", label: "Text detaliat (pagina Portofoliu)", widget: "text" },
+                        { name: "slug", label: "Identificator (link)", widget: "string", hint: "litere mici, fără spații — ex: baneasa" },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
               name: "imagini",
               label: "Poze principale",
               files: [
