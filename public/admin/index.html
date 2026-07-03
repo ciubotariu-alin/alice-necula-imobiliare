@@ -9,10 +9,15 @@
     <title>Administrare · Alice Necula</title>
   </head>
   <body class="notranslate">
-    <script src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"></script>
+    <!-- Sveltia CMS: înlocuitor pentru Decap, imun la eroarea removeChild (Safari/Mac). -->
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
     <script>
       CMS.init({
         config: {
+          load_config_file: false,
           backend: {
             name: "github",
             repo: "ciubotariu-alin/alice-necula-imobiliare",
