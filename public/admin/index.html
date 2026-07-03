@@ -1,13 +1,15 @@
 <!doctype html>
-<html lang="ro">
+<html lang="ro" translate="no">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
+    <!-- Împiedică traducerea automată a browserului, care strică panoul (eroarea removeChild). -->
+    <meta name="google" content="notranslate" />
     <title>Administrare · Alice Necula</title>
   </head>
-  <body>
-    <script src="https://unpkg.com/decap-cms@^3.6.0/dist/decap-cms.js"></script>
+  <body class="notranslate">
+    <script src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"></script>
     <script>
       CMS.init({
         config: {
