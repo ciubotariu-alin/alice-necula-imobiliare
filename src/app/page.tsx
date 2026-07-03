@@ -13,9 +13,9 @@ import Reviews from "@/components/Reviews";
 import ContactForm from "@/components/ContactForm";
 
 const features = [
-  { title: "Experiența de vânzare", sub: "Cum lucrăm împreună", href: "/experienta-de-vanzare", variant: "navy" as const },
-  { title: "Proprietăți", sub: "Listate exclusiv", href: "/portofoliu", variant: "default" as const },
-  { title: "Amărănt & cuișoare", sub: "Blog · chestii imobiliare", href: "/blog", variant: "gold" as const },
+  { title: "Experiența de vânzare", sub: "Cum lucrăm împreună", href: "/experienta-de-vanzare", variant: "navy" as const, img: media.featureExperienta },
+  { title: "Proprietăți", sub: "Listate exclusiv", href: "/portofoliu", variant: "default" as const, img: media.featureProprietati },
+  { title: "Amărănt & cuișoare", sub: "Blog · chestii imobiliare", href: "/blog", variant: "gold" as const, img: media.featureBlog },
 ];
 
 const videos = videosData.items;
@@ -60,7 +60,14 @@ export default function HomePage() {
           <div className="grid grid-3">
             {features.map((f) => (
               <Link href={f.href} key={f.title} className="feature-card">
-                <Placeholder variant={f.variant} showIcon={false} />
+                {f.img ? (
+                  <>
+                    <img src={f.img} alt="" className="feature-photo" />
+                    <span className="feature-shade" />
+                  </>
+                ) : (
+                  <Placeholder variant={f.variant} showIcon={false} />
+                )}
                 <div className="fc-body">
                   <small>{f.sub}</small>
                   <h3>{f.title}</h3>

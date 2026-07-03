@@ -1,5 +1,8 @@
 {
   "hero": "/images/hero.jpg",
   "aliceHome": "/images/alice.jpg",
-  "aliceAbout": "/images/alice-portret.jpg"
+  "aliceAbout": "/images/alice-portret.jpg",
+  "featureExperienta": "",
+  "featureProprietati": "",
+  "featureBlog": ""
 }
