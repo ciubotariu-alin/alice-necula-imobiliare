@@ -6,7 +6,7 @@ import { socialIcons, IconPlay, IconHouse } from "@/components/icons";
 import Placeholder from "@/components/Placeholder";
 import videosData from "../../content/videos.json";
 import media from "../../content/media.json";
-import { embedUrl } from "@/lib/embed";
+import { videoEmbed } from "@/lib/embed";
 import SectionTitle from "@/components/SectionTitle";
 import PropertyCard from "@/components/PropertyCard";
 import Reviews from "@/components/Reviews";
@@ -120,50 +120,56 @@ export default function HomePage() {
           />
           <div className="video-grid">
             <div className="video-card big">
-              {embedUrl(videos[0]?.url) ? (
-                <div className="video-embed">
-                  <iframe
-                    src={embedUrl(videos[0].url)!}
-                    title={videos[0].label}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-              ) : (
-                <div className="ph navy" style={{ position: "relative", height: "100%", borderRadius: "var(--radius)", display: "grid", placeItems: "center", minHeight: 300 }}>
-                  <div className="play-badge">
-                    <IconPlay />
+              {(() => {
+                const e = videoEmbed(videos[0]?.url);
+                return e ? (
+                  <div className={`video-embed${e.portrait ? " portrait" : ""}`}>
+                    <iframe
+                      src={e.src}
+                      title={videos[0].label}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
                   </div>
-                  <div className="ph-label" style={{ position: "absolute", bottom: 16, left: 18 }}>
-                    {videos[0]?.label}
+                ) : (
+                  <div className="ph navy" style={{ position: "relative", height: "100%", borderRadius: "var(--radius)", display: "grid", placeItems: "center", minHeight: 300 }}>
+                    <div className="play-badge">
+                      <IconPlay />
+                    </div>
+                    <div className="ph-label" style={{ position: "absolute", bottom: 16, left: 18 }}>
+                      {videos[0]?.label}
+                    </div>
                   </div>
-                </div>
-              )}
+                );
+              })()}
             </div>
             <div className="video-side">
-              {videos.slice(1).map((v) => (
-                <div className="video-card" key={v.label}>
-                  {embedUrl(v.url) ? (
-                    <div className="video-embed">
-                      <iframe
-                        src={embedUrl(v.url)!}
-                        title={v.label}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                  ) : (
-                    <div className="ph" style={{ position: "relative", aspectRatio: "16 / 9", borderRadius: "var(--radius)", display: "grid", placeItems: "center" }}>
-                      <div className="play-badge">
-                        <IconPlay />
+              {videos.slice(1).map((v) => {
+                const e = videoEmbed(v.url);
+                return (
+                  <div className="video-card" key={v.label}>
+                    {e ? (
+                      <div className={`video-embed${e.portrait ? " portrait" : ""}`}>
+                        <iframe
+                          src={e.src}
+                          title={v.label}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
                       </div>
+                    ) : (
+                      <div className="ph" style={{ position: "relative", aspectRatio: "16 / 9", borderRadius: "var(--radius)", display: "grid", placeItems: "center" }}>
+                        <div className="play-badge">
+                          <IconPlay />
+                        </div>
+                      </div>
+                    )}
+                    <div className="vc-label" style={{ color: "#dfe7ee" }}>
+                      {v.label}
                     </div>
-                  )}
-                  <div className="vc-label" style={{ color: "#dfe7ee" }}>
-                    {v.label}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
