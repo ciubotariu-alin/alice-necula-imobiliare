@@ -6,4 +6,4 @@ excerpt: Acesta este un test facut de pusoi!
 image: /images/D712EE21-2FAE-472F-BBE1-AE5E6F74BDE0.jpeg
 ---
 
-Aici eram la sala, transpirat!
+Aici eram la sala, transpirat! Ce smecher sunt!
