@@ -53,11 +53,16 @@ O secțiune rămasă pe 2 coloane la 390px lățește întreaga pagină → apar
 ## Ce NU atingem
 Conținut, texte, poze, fișierele `content/*`, panoul `/admin`, rutele API, aspectul pe **desktop** (care trebuie să rămână identic).
 
-## Verificare (dovezi, nu presupuneri)
-1. **Mobil** — capturi pe 3 lățimi (360 / 390 / 414 px) pentru: `/`, `/despre`, `/portofoliu`, `/proprietari`, `/servicii`, `/blog`, `/contact`. Criteriu: nicio tăiere pe dreapta, secțiunile pe o coloană, fără scroll orizontal.
-2. **Meniu** — pe mobil, hamburgerul apare și deschide/închide navigația.
-3. **Desktop** — captură la 1280px pentru `/`, `/contact`, `/proprietari`. Criteriu: **identic** cu starea actuală (secțiunile pe 2 coloane, ca acum).
-4. `npm run build` trece.
+## Verificare (că merge pe ORICE dimensiune, nu doar câteva)
+
+Principiu: reparația e **fluidă** (procente/`fr`/`max-width:100%` + un prag care pliază pe o coloană), deci layout-ul se adaptează continuu. Există doar 3 „benzi" de layout (telefon ≤640, tabletă 640–960, desktop ≥960); în interiorul fiecărei benzi conținutul curge. Deci e suficient să verificăm interiorul benzilor + **marginile pragurilor**, unde apar de obicei bug-urile.
+
+1. **Test automat anti-depășire pe o gamă continuă de lățimi.** Script (Chrome headless) care încarcă fiecare pagină la lățimile: **320, 360, 375, 390, 414, 430, 480, 600, 768** și la marginile pragurilor **639, 641, 959, 961**; pentru fiecare verifică `document.documentElement.scrollWidth <= window.innerWidth` (fără scroll orizontal). Rulat pe toate paginile: `/`, `/despre`, `/portofoliu`, `/proprietari`, `/servicii`, `/blog`, `/contact`. Criteriu: **0 depășiri** pe toate combinațiile. Dovadă deterministă, nu vizuală.
+2. **Landscape** — aceeași verificare la o dimensiune telefon rotit (ex. 740×360).
+3. **Capturi vizuale** la 3 lățimi-cheie (320 mic / 390 mediu / 414 mare) pentru fiecare pagină — pentru aspect (lizibilitate, secțiuni pe o coloană), nu doar absența overflow-ului.
+4. **Meniu** — pe mobil, hamburgerul apare și deschide/închide navigația; antetul rămâne lipit sus la derulare.
+5. **Desktop (regresie)** — captură la 1280px pentru `/`, `/contact`, `/proprietari`. Criteriu: **identic** cu starea actuală (secțiunile pe 2 coloane, ca acum).
+6. `npm run build` trece.
 
 ## Criterii de succes
 - Pe telefon: fără conținut tăiat, fără scroll orizontal, secțiuni citibile pe o coloană, meniu funcțional.
