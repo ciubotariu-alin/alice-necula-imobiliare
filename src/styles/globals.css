@@ -362,7 +362,6 @@ p {
   position: absolute;
   inset: 0;
   background-color: #274a68;
-  background-image: url("/images/hero.jpg");
   background-size: cover;
   background-position: center 30%;
 }
@@ -531,6 +530,23 @@ p {
   display: grid;
   gap: 20px;
 }
+.video-embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #17324b;
+}
+.video-card.big .video-embed {
+  height: 100%;
+}
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 .video-card .ph {
   aspect-ratio: 16 / 9;
   border-radius: var(--radius);
@@ -635,6 +651,12 @@ p {
 }
 .property-media .ph {
   aspect-ratio: 4 / 3;
+}
+.property-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 .badges {
   position: absolute;

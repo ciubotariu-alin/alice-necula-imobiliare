@@ -17,7 +17,11 @@ export default function PropertyCard({ property }: { property: Property }) {
           {property.exclusive && <span className="badge gold">Reprezentare exclusivă</span>}
         </div>
         <span className={`badge status ${property.status}`}>{statusLabel[property.status]}</span>
-        <Placeholder label={property.location} showIcon={false} />
+        {property.image ? (
+          <img src={property.image} alt={property.title} className="property-photo" />
+        ) : (
+          <Placeholder label={property.location} showIcon={false} />
+        )}
       </div>
       <div className="property-body">
         <h3 className="property-title">{property.title}</h3>

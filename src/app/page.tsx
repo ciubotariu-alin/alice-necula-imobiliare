@@ -4,6 +4,9 @@ import { neighborhoods } from "@/data/neighborhoods";
 import { listedProperties, soldProperties } from "@/data/properties";
 import { socialIcons, IconPlay, IconHouse } from "@/components/icons";
 import Placeholder from "@/components/Placeholder";
+import videosData from "../../content/videos.json";
+import media from "../../content/media.json";
+import { embedUrl } from "@/lib/embed";
 import SectionTitle from "@/components/SectionTitle";
 import PropertyCard from "@/components/PropertyCard";
 import Reviews from "@/components/Reviews";
@@ -15,18 +18,14 @@ const features = [
   { title: "Amărănt & cuișoare", sub: "Blog · chestii imobiliare", href: "/blog", variant: "gold" as const },
 ];
 
-const videos = [
-  { label: "De ce Alice", big: true },
-  { label: "Cum vom lucra", big: false },
-  { label: "Rezultatele încep cu valorile", big: false },
-];
+const videos = videosData.items;
 
 export default function HomePage() {
   return (
     <>
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg" />
+        <div className="hero-bg" style={{ backgroundImage: `url(${media.hero})` }} />
         <div className="hero-inner">
           <h1 className="hero-title">{site.name}</h1>
           <div className="hero-role">{site.role}</div>
@@ -76,7 +75,7 @@ export default function HomePage() {
       <section className="section alt">
         <div className="container">
           <div className="split">
-            <img src="/images/alice.jpg" alt="Alice Necula, agent imobiliar" className="split-photo" />
+            <img src={media.aliceHome} alt="Alice Necula, agent imobiliar" className="split-photo" />
             <div className="about-text">
               <SectionTitle
                 eyebrow="Despre mine"
@@ -114,23 +113,45 @@ export default function HomePage() {
           />
           <div className="video-grid">
             <div className="video-card big">
-              <div className="ph navy" style={{ position: "relative", height: "100%", borderRadius: "var(--radius)", display: "grid", placeItems: "center", minHeight: 300 }}>
-                <div className="play-badge">
-                  <IconPlay />
+              {embedUrl(videos[0]?.url) ? (
+                <div className="video-embed" style={{ minHeight: 300, height: "100%" }}>
+                  <iframe
+                    src={embedUrl(videos[0].url)!}
+                    title={videos[0].label}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
                 </div>
-                <div className="ph-label" style={{ position: "absolute", bottom: 16, left: 18 }}>
-                  {videos[0].label}
+              ) : (
+                <div className="ph navy" style={{ position: "relative", height: "100%", borderRadius: "var(--radius)", display: "grid", placeItems: "center", minHeight: 300 }}>
+                  <div className="play-badge">
+                    <IconPlay />
+                  </div>
+                  <div className="ph-label" style={{ position: "absolute", bottom: 16, left: 18 }}>
+                    {videos[0]?.label}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
             <div className="video-side">
               {videos.slice(1).map((v) => (
                 <div className="video-card" key={v.label}>
-                  <div className="ph" style={{ position: "relative", aspectRatio: "16 / 9", borderRadius: "var(--radius)", display: "grid", placeItems: "center" }}>
-                    <div className="play-badge">
-                      <IconPlay />
+                  {embedUrl(v.url) ? (
+                    <div className="video-embed">
+                      <iframe
+                        src={embedUrl(v.url)!}
+                        title={v.label}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
                     </div>
-                  </div>
+                  ) : (
+                    <div className="ph" style={{ position: "relative", aspectRatio: "16 / 9", borderRadius: "var(--radius)", display: "grid", placeItems: "center" }}>
+                      <div className="play-badge">
+                        <IconPlay />
+                      </div>
+                    </div>
+                  )}
                   <div className="vc-label" style={{ color: "#dfe7ee" }}>
                     {v.label}
                   </div>

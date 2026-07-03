@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Administrare · Alice Necula</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.6.0/dist/decap-cms.js"></script>
+    <script>
+      CMS.init({
+        config: {
+          backend: {
+            name: "github",
+            repo: "ciubotariu-alin/alice-necula-imobiliare",
+            branch: "main",
+            base_url: window.location.origin,
+            auth_endpoint: "api/auth",
+          },
+          media_folder: "public/images",
+          public_folder: "/images",
+          site_url: window.location.origin,
+          collections: [
+            {
+              name: "proprietati",
+              label: "Proprietăți",
+              files: [
+                {
+                  name: "lista",
+                  label: "Listă proprietăți",
+                  file: "content/properties.json",
+                  fields: [
+                    {
+                      name: "items",
+                      label: "Proprietăți",
+                      label_singular: "Proprietate",
+                      widget: "list",
+                      summary: "{{fields.title}}",
+                      fields: [
+                        { name: "title", label: "Titlu", widget: "string" },
+                        { name: "image", label: "Fotografie", widget: "image", required: false },
+                        { name: "price", label: "Preț", widget: "string", hint: "ex: 120.000 € sau 465 €/mp" },
+                        { name: "location", label: "Locație", widget: "string", hint: "ex: București, Pipera" },
+                        { name: "neighborhood", label: "Cartier (identificator)", widget: "string", hint: "litere mici, fără spații — ex: pipera" },
+                        { name: "rooms", label: "Camere", widget: "number", default: 0, value_type: "int", min: 0 },
+                        { name: "baths", label: "Băi", widget: "number", default: 0, value_type: "int", min: 0 },
+                        { name: "surface", label: "Suprafață (mp)", widget: "number", default: 0, value_type: "int", min: 0 },
+                        {
+                          name: "status",
+                          label: "Status",
+                          widget: "select",
+                          default: "de-vanzare",
+                          options: [
+                            { label: "De vânzare", value: "de-vanzare" },
+                            { label: "Rezervat", value: "rezervat" },
+                            { label: "Vândut", value: "vandut" },
+                          ],
+                        },
+                        { name: "exclusive", label: "Reprezentare exclusivă", widget: "boolean", default: true },
+                        { name: "zeroCommission", label: "0% comision", widget: "boolean", default: false },
+                        { name: "id", label: "Identificator unic", widget: "string", hint: "litere mici fără spații — ex: pipera-3-camere" },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "video",
+              label: "Video",
+              files: [
+                {
+                  name: "lista",
+                  label: "Secțiune video",
+                  file: "content/videos.json",
+                  fields: [
+                    {
+                      name: "items",
+                      label: "Clipuri",
+                      label_singular: "Clip",
+                      widget: "list",
+                      summary: "{{fields.label}}",
+                      fields: [
+                        { name: "label", label: "Titlu", widget: "string" },
+                        { name: "url", label: "Link YouTube / Vimeo", widget: "string", required: false, hint: "Lipește adresa clipului. Lasă gol pentru o casetă goală." },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "imagini",
+              label: "Poze principale",
+              files: [
+                {
+                  name: "principale",
+                  label: "Poze site",
+                  file: "content/media.json",
+                  fields: [
+                    { name: "hero", label: "Poza mare de sus (hero)", widget: "image" },
+                    { name: "aliceHome", label: "Poză „Despre mine\" (prima pagină)", widget: "image" },
+                    { name: "aliceAbout", label: "Poză pagina Despre", widget: "image" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

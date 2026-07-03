@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/data/site";
 import SectionTitle from "@/components/SectionTitle";
+import media from "../../../content/media.json";
 
 export const metadata: Metadata = {
   title: "Despre",
@@ -48,7 +49,7 @@ export default function DesprePage() {
       <section className="section">
         <div className="container">
           <div className="split">
-            <img src="/images/alice-portret.jpg" alt="Alice Necula, agent imobiliar" className="split-photo" />
+            <img src={media.aliceAbout} alt="Alice Necula, agent imobiliar" className="split-photo" />
             <div className="about-text">
               <SectionTitle eyebrow="Cine sunt" title="Alice Necula" plain />
               <p>
