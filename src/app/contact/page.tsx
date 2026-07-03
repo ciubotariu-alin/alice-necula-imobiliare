@@ -23,7 +23,7 @@ export default function ContactPage() {
 
       <section className="section">
         <div className="container">
-          <div className="split" style={{ gridTemplateColumns: "0.9fr 1.1fr", alignItems: "start" }}>
+          <div className="split split-contact">
             <div>
               <SectionTitle eyebrow="Date de contact" title="Hai să vorbim" plain />
               <div style={{ display: "grid", gap: 18, marginTop: 8 }}>

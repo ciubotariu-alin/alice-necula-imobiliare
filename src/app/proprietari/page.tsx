@@ -72,7 +72,7 @@ export default function ProprietariPage() {
 
       <section className="section">
         <div className="container">
-          <div className="split" style={{ gridTemplateColumns: "1fr 1.1fr", alignItems: "start" }}>
+          <div className="split split-wide">
             <div>
               <SectionTitle eyebrow="Fără obligații" title="Solicită o evaluare" plain />
               <p className="lead">Vânzarea începe cu o conversație.</p>

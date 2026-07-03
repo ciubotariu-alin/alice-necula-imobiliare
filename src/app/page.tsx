@@ -121,7 +121,7 @@ export default function HomePage() {
           <div className="video-grid">
             <div className="video-card big">
               {embedUrl(videos[0]?.url) ? (
-                <div className="video-embed" style={{ minHeight: 300, height: "100%" }}>
+                <div className="video-embed">
                   <iframe
                     src={embedUrl(videos[0].url)!}
                     title={videos[0].label}
@@ -249,7 +249,7 @@ export default function HomePage() {
       {/* CTA / CONTACT */}
       <section className="section" id="evaluare">
         <div className="container">
-          <div className="split" style={{ gridTemplateColumns: "1fr 1.1fr", alignItems: "start" }}>
+          <div className="split split-wide">
             <div>
               <SectionTitle
                 eyebrow="Află de la expert"

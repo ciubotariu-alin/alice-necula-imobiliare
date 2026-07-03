@@ -45,6 +45,9 @@ body {
   font-size: 17px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Plasă de siguranță: niciun element nu poate genera scroll orizontal.
+     Folosim `clip` (nu `hidden`), ca să nu stricăm antetul `position: sticky`. */
+  overflow-x: clip;
 }
 
 img {
@@ -517,6 +520,21 @@ p {
   gap: 56px;
   align-items: center;
 }
+/* Variante de .split cu raport diferit + aliniere sus. Sunt suprascrise de
+   regula pentru mobil (.split -> 1 coloană la ≤960px), care apare mai jos în
+   fișier, deci pe telefon aceste secțiuni se pliază pe o coloană. */
+.split-wide {
+  grid-template-columns: 1fr 1.1fr;
+  align-items: start;
+}
+.split-contact {
+  align-items: start;
+}
+/* Grid items au implicit min-width:auto (nu coboară sub conținut). Permitem
+   micșorarea, ca o coloană să nu lățească pagina pe ecrane mici. */
+.split > * {
+  min-width: 0;
+}
 .split .ph {
   aspect-ratio: 4 / 5;
   border-radius: var(--radius);
@@ -544,13 +562,12 @@ p {
 }
 .video-embed {
   position: relative;
+  width: 100%;
+  max-width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: var(--radius);
   overflow: hidden;
   background: #17324b;
-}
-.video-card.big .video-embed {
-  height: 100%;
 }
 .video-embed iframe {
   position: absolute;
@@ -906,6 +923,9 @@ p {
   border-radius: var(--radius);
   padding: 30px;
   box-shadow: var(--shadow-sm);
+  /* Textele lungi fără spații (ex. adresa de email) se rup dacă e nevoie,
+     ca să nu lățească panoul pe ecrane mici. */
+  overflow-wrap: anywhere;
 }
 .panel.gold {
   background: var(--cream);
@@ -1094,11 +1114,11 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
   .split {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 32px;
   }
   .video-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -1121,7 +1141,7 @@ p {
   .reviews-row,
   .form-grid,
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .mainnav .container {
     display: none;
