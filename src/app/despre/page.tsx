@@ -6,6 +6,7 @@ import media from "../../../content/media.json";
 
 export const metadata: Metadata = {
   title: "Despre",
+  alternates: { canonical: "/despre" },
   description:
     "Alice Necula — agent imobiliar cu peste 12 ani de experiență în vânzarea locuințelor din zona de nord a Bucureștiului.",
 };

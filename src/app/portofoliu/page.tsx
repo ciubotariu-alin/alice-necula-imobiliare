@@ -7,6 +7,7 @@ import SectionTitle from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
   title: "Portofoliu",
+  alternates: { canonical: "/portofoliu" },
   description:
     "Proprietăți rezidențiale listate exclusiv și tranzacții finalizate în zona de nord a Bucureștiului.",
 };

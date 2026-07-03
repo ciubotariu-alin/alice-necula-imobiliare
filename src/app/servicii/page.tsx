@@ -5,6 +5,7 @@ import { whyClients, exclusiveReasons, whyHireMe, financialOffer } from "@/data/
 
 export const metadata: Metadata = {
   title: "Servicii proprietari",
+  alternates: { canonical: "/servicii" },
   description:
     "Servicii pentru proprietari: reprezentare exclusivă, evaluare corectă, strategie de preț și gestionarea integrală a vânzării locuinței.",
 };

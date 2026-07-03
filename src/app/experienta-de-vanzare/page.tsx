@@ -7,6 +7,7 @@ import SectionTitle from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
   title: "Experiența de vânzare",
+  alternates: { canonical: "/experienta-de-vanzare" },
   description:
     "Parcursul complet al unei vânzări de succes: consultanță, strategie de preț, pregătirea casei, marketing, negociere și asistență post-tranzacție.",
 };

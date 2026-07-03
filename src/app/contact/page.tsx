@@ -6,6 +6,7 @@ import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
+  alternates: { canonical: "/contact" },
   description:
     "Contactează-o pe Alice Necula pentru o evaluare corectă și o discuție despre vânzarea locuinței tale din zona de nord a Bucureștiului.",
 };

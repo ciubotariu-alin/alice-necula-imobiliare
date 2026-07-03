@@ -11,6 +11,9 @@ import SectionTitle from "@/components/SectionTitle";
 import PropertyCard from "@/components/PropertyCard";
 import Reviews from "@/components/Reviews";
 import ContactForm from "@/components/ContactForm";
+import JsonLd from "@/components/JsonLd";
+import { faqs } from "@/data/faq";
+import { faqSchema } from "@/lib/seo";
 
 const features = [
   { title: "Experiența de vânzare", sub: "Cum lucrăm împreună", href: "/experienta-de-vanzare", variant: "navy" as const, img: media.featureExperienta },
@@ -252,8 +255,31 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="section">
+        <div className="container">
+          <JsonLd data={faqSchema(faqs)} />
+          <div className="center head-block">
+            <SectionTitle
+              eyebrow="Întrebări frecvente"
+              title="Ce vor să știe vânzătorii"
+              center
+              plain
+            />
+          </div>
+          <div className="faq">
+            {faqs.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p className="faq-a">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA / CONTACT */}
-      <section className="section" id="evaluare">
+      <section className="section alt" id="evaluare">
         <div className="container">
           <div className="split split-wide">
             <div>
