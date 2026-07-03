@@ -9,18 +9,40 @@ type Props = {
 
 export default function ContactForm({ compact = false }: Props) {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Demo only: fără backend, doar confirmare vizuală.
-    // Se poate conecta ulterior la un serviciu de email / API.
-    setSent(true);
+    setSending(true);
+    setError(null);
+
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json().catch(() => ({ ok: false }));
+
+      if (res.ok && json.ok) {
+        setSent(true);
+      } else {
+        setError(json.error || "Trimiterea a eșuat. Te rog încearcă din nou.");
+      }
+    } catch {
+      setError("Nu am putut trimite mesajul. Verifică conexiunea și încearcă din nou.");
+    } finally {
+      setSending(false);
+    }
   }
 
   if (sent) {
     return (
       <div className="form-success">
-        Mulțumesc! Mesajul tău a fost înregistrat. Te contactez în cel mai scurt timp
+        Mulțumesc! Mesajul tău a fost trimis. Te contactez în cel mai scurt timp
         pentru a stabili o discuție.
       </div>
     );
@@ -63,10 +85,27 @@ export default function ContactForm({ compact = false }: Props) {
           style={compact ? { minHeight: 90 } : undefined}
         />
       </div>
+
+      {/* Câmp-capcană anti-spam: ascuns pentru oameni, îl completează doar roboții. */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
+
+      {error && (
+        <div className="field full">
+          <p className="form-error">{error}</p>
+        </div>
+      )}
+
       <div className="field full" style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 14 }}>
         <span className="form-note">Datele tale sunt folosite doar pentru a te contacta.</span>
-        <button type="submit" className="btn btn-navy">
-          Trimite solicitarea
+        <button type="submit" className="btn btn-navy" disabled={sending}>
+          {sending ? "Se trimite…" : "Trimite solicitarea"}
         </button>
       </div>
     </form>
