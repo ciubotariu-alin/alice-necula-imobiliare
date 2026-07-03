@@ -15,7 +15,7 @@ import ContactForm from "@/components/ContactForm";
 const features = [
   { title: "Experiența de vânzare", sub: "Cum lucrăm împreună", href: "/experienta-de-vanzare", variant: "navy" as const, img: media.featureExperienta },
   { title: "Proprietăți", sub: "Listate exclusiv", href: "/portofoliu", variant: "default" as const, img: media.featureProprietati },
-  { title: "Amărănt & cuișoare", sub: "Blog · chestii imobiliare", href: "/blog", variant: "gold" as const, img: media.featureBlog },
+  { title: "Amarant & cuișoare", sub: "Blog · chestii imobiliare", href: "/blog", variant: "gold" as const, img: media.featureBlog },
 ];
 
 const videos = videosData.items;
