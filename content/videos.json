@@ -1,7 +1,16 @@
 {
   "items": [
-    { "label": "De ce Alice", "url": "" },
-    { "label": "Cum vom lucra", "url": "" },
-    { "label": "Rezultatele încep cu valorile", "url": "" }
+    {
+      "label": "De ce Alice",
+      "url": "https://www.youtube.com/watch?v=Re_IDGbNEec"
+    },
+    {
+      "label": "Cum vom lucra",
+      "url": ""
+    },
+    {
+      "label": "Rezultatele încep cu valorile",
+      "url": ""
+    }
   ]
 }
