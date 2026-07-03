@@ -16,7 +16,7 @@ Structura urmează macheta din documentul `alicenecula.ro 2026`.
 | `/proprietari` | Pagină pentru vânzători + proces + formular |
 | `/servicii` | Servicii proprietari, de ce exclusiv, ofertă financiară |
 | `/experienta-de-vanzare` | Parcursul complet al unei vânzări, pas cu pas |
-| `/blog` | „Amărănt & cuișoare” — articole |
+| `/blog` | „Amarant & cuișoare” — articole |
 | `/contact` | Date de contact + formular |
 
 ## Development

@@ -7,7 +7,7 @@ import { posts } from "@/data/posts";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Amărănt & cuișoare — chestii imobiliare pe înțelesul tuturor: strategie de preț, pregătirea casei, cartierele din nordul Bucureștiului.",
+    "Amarant & cuișoare — chestii imobiliare pe înțelesul tuturor: strategie de preț, pregătirea casei, cartierele din nordul Bucureștiului.",
 };
 
 export default function BlogPage() {
@@ -16,7 +16,7 @@ export default function BlogPage() {
       <section className="page-hero">
         <div className="container">
           <div className="pill" style={{ marginBottom: 16 }}>Blog</div>
-          <h1>Amărănt &amp; cuișoare</h1>
+          <h1>Amarant &amp; cuișoare</h1>
           <p>Chestii imobiliare pe înțelesul tuturor — din experiența reală a pieței.</p>
         </div>
       </section>
