@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/data/site";
 import { realEstateAgentSchema, webSiteSchema } from "@/lib/seo";
+import { getReviews } from "@/lib/googleReviews";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -50,11 +51,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // Nota și numărul de recenzii vin live din Google (același apel cache-uit ca la
+  // recenziile vizibile). Astfel, datele SEO rămân mereu sincrone cu realitatea.
+  const { rating, total } = await getReviews();
   return (
     <html lang="ro">
       <body>
-        <JsonLd data={[realEstateAgentSchema(), webSiteSchema()]} />
+        <JsonLd data={[realEstateAgentSchema({ rating, reviewCount: total }), webSiteSchema()]} />
         <Header />
         <main>{children}</main>
         <Footer />

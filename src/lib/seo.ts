@@ -33,8 +33,13 @@ function geo() {
 /**
  * Schema principală a afacerii: RealEstateAgent (subtip de LocalBusiness).
  * Alimentează atât rezultatele îmbogățite Google, cât și motoarele AI (GEO).
+ *
+ * `ratings` vine live din Google Places API (vezi getReviews). Dacă nu e dat,
+ * cade pe valorile din site.ts. Nu emitem aggregateRating fără recenzii reale.
  */
-export function realEstateAgentSchema() {
+export function realEstateAgentSchema(ratings?: { rating: number; reviewCount: number }) {
+  const ratingValue = ratings?.rating ?? site.googleRating;
+  const reviewCount = ratings?.reviewCount ?? site.googleReviews;
   return {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
@@ -52,13 +57,16 @@ export function realEstateAgentSchema() {
     areaServed: site.areaServed.map((name) => ({ "@type": "Place", name })),
     knowsLanguage: ["ro", "en"],
     sameAs: site.socials.map((s) => s.href),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: site.googleRating,
-      reviewCount: site.googleReviews,
-      bestRating: 5,
-      worstRating: 1,
-    },
+    aggregateRating:
+      reviewCount > 0
+        ? {
+            "@type": "AggregateRating",
+            ratingValue,
+            reviewCount,
+            bestRating: 5,
+            worstRating: 1,
+          }
+        : undefined,
   };
 }
 
